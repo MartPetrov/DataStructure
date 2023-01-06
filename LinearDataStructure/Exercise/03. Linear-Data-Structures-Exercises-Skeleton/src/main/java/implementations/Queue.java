@@ -7,11 +7,15 @@ import java.util.Iterator;
 public class Queue<E> implements AbstractQueue<E> {
 
     private Node<E> head;
+
+    private Node<E> tail;
+
     private int size;
 
 
     public Queue() {
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
@@ -28,14 +32,10 @@ public class Queue<E> implements AbstractQueue<E> {
     public void offer(E element) {
         Node<E> toInsert = new Node<>(element);
         if (this.isEmpty()) {
-            this.head = toInsert;
+            this.head = this.tail = toInsert;
         } else {
-            Node<E> current = this.head;
-            while (current.next != null) {
-                current = current.next;
-            }
-
-            current.next = toInsert;
+            this.tail.next = toInsert;
+            this.tail = toInsert;
         }
 
         this.size++;
@@ -44,10 +44,16 @@ public class Queue<E> implements AbstractQueue<E> {
     @Override
     public E poll() {
         ensureNonEmpty();
-        Node<E> firstElement = this.head;
-        this.head = firstElement.next;
+        E firstElement = this.head.value;
+        if (this.size == 1) {
+            this.head = this.tail = null;
+        } else {
+            Node<E> next = this.head.next;
+            this.head.next = null;
+            this.head = next;
+        }
         this.size--;
-        return firstElement.value;
+        return firstElement;
     }
 
 

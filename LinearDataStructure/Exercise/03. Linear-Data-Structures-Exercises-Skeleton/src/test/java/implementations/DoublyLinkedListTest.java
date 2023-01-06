@@ -5,31 +5,31 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SinglyLinkedListTest {
-    private SinglyLinkedList<String> list;
+public class DoublyLinkedListTest {
+    private DoublyLinkedList<String> list;
 
     @Before
     public void setUp() {
         try {
-            this.list = new SinglyLinkedList<>();
+            this.list = new DoublyLinkedList<>();
             for (int i = 0; i < 100; i++) {
                 list.addLast(String.valueOf(i));
             }
         } catch (Exception ignored) {
-            this.list = new SinglyLinkedList<>();
+            this.list = new DoublyLinkedList<>();
         }
     }
 
     @Test
     public void testAddSingleElementInFront() {
-        SinglyLinkedList<Integer> integers = new SinglyLinkedList<>();
+        DoublyLinkedList<Integer> integers = new DoublyLinkedList<>();
         integers.addFirst(73);
         assertEquals(Integer.valueOf(73), integers.getFirst());
     }
 
     @Test
     public void testAddSingleElementInBack() {
-        SinglyLinkedList<Integer> integers = new SinglyLinkedList<>();
+        DoublyLinkedList<Integer> integers = new DoublyLinkedList<>();
         integers.addLast(73);
         assertEquals(Integer.valueOf(73), integers.getLast());
     }
@@ -54,10 +54,22 @@ public class SinglyLinkedListTest {
     }
 
     @Test
-    public void testRemoveLastShouldRemoveTheLAstElement() {
+    public void testRemoveLastShouldRemoveTheLastElement() {
         assertEquals("99", list.getLast());
         assertEquals("99", list.removeLast());
         assertEquals("98", list.getLast());
+    }
+
+    @Test
+    public void testRemoveLastShouldRemoveLast() {
+        DoublyLinkedList<Integer> doublyLinkedList = new DoublyLinkedList<>();
+        for (int i = 0; i < 1000; i++) {
+            doublyLinkedList.addLast(i);
+        }
+        Integer val = 999;
+        while (!doublyLinkedList.isEmpty()) {
+            assertEquals(val--, doublyLinkedList.removeLast());
+        }
     }
 
     @Test
@@ -77,20 +89,12 @@ public class SinglyLinkedListTest {
     @Test
     public void testSize() {
         assertEquals(100, list.size());
-        assertEquals(0, new SinglyLinkedList<>().size());
+        assertEquals(0, new DoublyLinkedList<>().size());
     }
 
     @Test
     public void testIsEmpty() {
         assertFalse(list.isEmpty());
-        assertTrue(new SinglyLinkedList<>().isEmpty());
-    }
-
-    @Test
-    public void  testIterator() {
-        int count = 0;
-        for (String s: list) {
-            assertEquals(s,String.valueOf(count++));
-        }
+        assertTrue(new DoublyLinkedList<>().isEmpty());
     }
 }
