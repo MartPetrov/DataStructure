@@ -45,7 +45,7 @@ public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
     @Override
     public E peek() {
         if (this.size() == 0) {
-            throw new IllegalStateException("Illegal cal to peek on empty heap");
+            throw new IllegalStateException("Illegal call to peek on empty heap");
         }
         return this.getAt(0);
     }
