@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c13529-ce41-42aa-a1d0-6d8c062e2339" name="Changes" comment="MaxHeap">
-      <changelist_data name="Martin Petrov" email="" />
+    <list default="true" id="36c13529-ce41-42aa-a1d0-6d8c062e2339" name="Changes" comment="MaxHeap &amp;&amp; PriorityQueue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/implementations/MaxHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/implementations/MaxHeap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/implementations/PriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/implementations/PriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +57,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.PriorityQueueTest">
-    <configuration name="BinaryTreeTest.testForEachInOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BinarySearchTreeTest">
+    <configuration name="BinarySearchTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Heaps-BST" />
       <extension name="coverage">
         <pattern>
@@ -68,14 +67,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.BinaryTreeTest" />
-      <option name="METHOD_NAME" value="testForEachInOrder" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="implementations.BinarySearchTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinaryTreeTest.testPostOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BinarySearchTreeTest.testLeftSideBST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Heaps-BST" />
       <extension name="coverage">
         <pattern>
@@ -84,8 +82,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.BinaryTreeTest" />
-      <option name="METHOD_NAME" value="testPostOrder" />
+      <option name="MAIN_CLASS_NAME" value="implementations.BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="testLeftSideBST" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BinarySearchTreeTest" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.testLeftSideBST" />
         <item itemvalue="JUnit.PriorityQueueTest" />
         <item itemvalue="JUnit.PriorityQueueTest.testPollMultipleElements" />
         <item itemvalue="JUnit.MaxHeapTest" />
-        <item itemvalue="JUnit.BinaryTreeTest.testForEachInOrder" />
-        <item itemvalue="JUnit.BinaryTreeTest.testPostOrder" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673284284271</updated>
       <workItem from="1673284290147" duration="5027000" />
-      <workItem from="1673300233112" duration="4075000" />
+      <workItem from="1673300233112" duration="6411000" />
     </task>
     <task id="LOCAL-00001" summary="BinaryTree">
       <created>1673295835076</created>
@@ -179,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673302238472</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="MaxHeap &amp;&amp; PriorityQueue">
+      <created>1673304647024</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673304647024</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +206,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="BinaryTree" />
     <MESSAGE value="MaxHeap" />
-    <option name="LAST_COMMIT_MESSAGE" value="MaxHeap" />
+    <MESSAGE value="MaxHeap &amp;&amp; PriorityQueue" />
+    <option name="LAST_COMMIT_MESSAGE" value="MaxHeap &amp;&amp; PriorityQueue" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
