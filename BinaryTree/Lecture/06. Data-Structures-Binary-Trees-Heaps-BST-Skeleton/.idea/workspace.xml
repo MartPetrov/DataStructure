@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36c13529-ce41-42aa-a1d0-6d8c062e2339" name="Changes" comment="MaxHeap &amp;&amp; PriorityQueue">
+    <list default="true" id="36c13529-ce41-42aa-a1d0-6d8c062e2339" name="Changes" comment="BinarySearchTree">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" afterDir="false" />
@@ -154,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673284284271</updated>
       <workItem from="1673284290147" duration="5027000" />
-      <workItem from="1673300233112" duration="6411000" />
+      <workItem from="1673300233112" duration="6880000" />
     </task>
     <task id="LOCAL-00001" summary="BinaryTree">
       <created>1673295835076</created>
@@ -184,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673304647024</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="BinarySearchTree">
+      <created>1673307004173</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673307004173</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +214,8 @@
     <MESSAGE value="BinaryTree" />
     <MESSAGE value="MaxHeap" />
     <MESSAGE value="MaxHeap &amp;&amp; PriorityQueue" />
-    <option name="LAST_COMMIT_MESSAGE" value="MaxHeap &amp;&amp; PriorityQueue" />
+    <MESSAGE value="BinarySearchTree" />
+    <option name="LAST_COMMIT_MESSAGE" value="BinarySearchTree" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

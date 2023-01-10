@@ -68,4 +68,14 @@ public class BinarySearchTreeTest {
         assertEquals(Integer.valueOf(1), left.value);
         assertEquals(Integer.valueOf(8), right.value);
     }
+
+    @Test
+    public void testContainShouldReturnTreeStructure() {
+        assertTrue(bst.contains(5));
+    }
+
+    @Test
+    public void testContainShouldReturnFalseStructure() {
+        assertFalse(bst.contains(-5));
+    }
 }
