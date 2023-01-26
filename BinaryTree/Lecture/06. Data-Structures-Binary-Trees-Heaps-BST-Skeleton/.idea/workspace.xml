@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36c13529-ce41-42aa-a1d0-6d8c062e2339" name="Changes" comment="BinarySearchTree">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/implementations/BinarySearchTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/implementations/BinarySearchTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
@@ -47,6 +54,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IT_/GitHub/DataStructure/BinaryTree/Exercise/07. Data-Structures-Heaps-BST-Exercises-Skeleton&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -54,10 +62,32 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BinarySearchTreeTest">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BinarySearchTreeTest (1)">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Heaps-BST-Exercises" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinarySearchTreeTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Heaps-BST-Exercises" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BinarySearchTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Heaps-BST" />
       <extension name="coverage">
@@ -73,63 +103,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BinarySearchTreeTest.testLeftSideBST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Heaps-BST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="implementations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.BinarySearchTreeTest" />
-      <option name="METHOD_NAME" value="testLeftSideBST" />
+    <configuration name="BinarySearchTreeTest.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Heaps-BST-Exercises" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="testCreate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaxHeapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Heaps-BST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="implementations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.MaxHeapTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PriorityQueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Heaps-BST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="implementations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.PriorityQueueTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PriorityQueueTest.testPollMultipleElements" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Heaps-BST" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="implementations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="implementations" />
-      <option name="MAIN_CLASS_NAME" value="implementations.PriorityQueueTest" />
-      <option name="METHOD_NAME" value="testPollMultipleElements" />
+    <configuration name="BinarySearchTreeTest.testRank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Heaps-BST-Exercises" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BinarySearchTreeTest" />
+      <option name="METHOD_NAME" value="testRank" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BinarySearchTreeTest (1)" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.testRank" />
+        <item itemvalue="JUnit.BinarySearchTreeTest.testCreate" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.BinarySearchTreeTest" />
-        <item itemvalue="JUnit.BinarySearchTreeTest.testLeftSideBST" />
-        <item itemvalue="JUnit.PriorityQueueTest" />
-        <item itemvalue="JUnit.PriorityQueueTest.testPollMultipleElements" />
-        <item itemvalue="JUnit.MaxHeapTest" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +143,10 @@
       <updated>1673284284271</updated>
       <workItem from="1673284290147" duration="5027000" />
       <workItem from="1673300233112" duration="6880000" />
+      <workItem from="1673339099801" duration="1427000" />
+      <workItem from="1673342833469" duration="56000" />
+      <workItem from="1673515763083" duration="13560000" />
+      <workItem from="1673608599302" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="BinaryTree">
       <created>1673295835076</created>
@@ -191,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673307004173</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="BinarySearchTree">
+      <created>1673339178603</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673339178603</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,5 +228,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
