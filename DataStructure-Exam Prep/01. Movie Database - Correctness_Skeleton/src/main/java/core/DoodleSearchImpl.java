@@ -39,7 +39,7 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public boolean contains(Doodle doodle) {
-        return this.doodleMapById.containsValue(doodle);
+        return this.doodleMapById.containsKey(doodle.getId());
     }
 
     @Override
@@ -53,16 +53,7 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public double getTotalRevenueFromDoodleAds() {
-//        List<Doodle> doodleList = this.doodleMapById.values().stream()
-//                .filter(Doodle::getIsAd)
-//                .collect(Collectors.toList());
-//        double totalRevenue = 0;
-//        for (int i = 0; i < doodleList.size(); i++) {
-//            Doodle currentDoodle = doodleList.get(i);
-//            totalRevenue += currentDoodle.getRevenue() * currentDoodle.getVisits();
-//        }
-        return this.doodleMapById.values()
-                .stream()
+        return this.doodleMapById.values().stream()
                 .filter(Doodle::getIsAd)
                 .mapToDouble(d -> d.getRevenue() * d.getVisits())
                 .sum();
@@ -70,16 +61,13 @@ public class DoodleSearchImpl implements DoodleSearch {
 
     @Override
     public void visitDoodle(String title) {
-//        List<Doodle> currentDoodles = doodleMapById.values()
-//                .stream()
-//                .filter(d -> d.getTitle().equals(title))
-//                .collect(Collectors.toList());
         Doodle currentDoodles = doodleByTitle.get(title);
         if (currentDoodles == null) {
             throw new IllegalArgumentException();
         }
         int currentVisits = currentDoodles.getVisits();
         currentDoodles.setVisits(currentVisits + 1);
+
     }
 
     @Override
