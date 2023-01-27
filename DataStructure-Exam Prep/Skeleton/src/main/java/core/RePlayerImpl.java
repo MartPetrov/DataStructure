@@ -3,149 +3,143 @@ package core;
 import models.Track;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RePlayerImpl implements RePlayer {
-    public class Album {
 
-        private final String nameOfAlbum;
-        private final List<Track> trackInAlbum;
-        private int size;
-
-        public Album(String nameOfAlbums) {
-            this.nameOfAlbum = nameOfAlbums;
-            this.trackInAlbum = new LinkedList<>();
-        }
-
-
-        public String getNameOfAlbum() {
-            return nameOfAlbum;
-        }
-
-        public void addTrack(Track track) {
-            this.trackInAlbum.add(track);
-            this.size++;
-        }
-
-        public List<Track> getTrackInAlbum() {
-            return trackInAlbum;
-        }
-
-        public int getSize() {
-            return size;
-        }
-
-        public Track getTrack(String trackName) {
-            return this.trackInAlbum.stream().filter(track -> track.getTitle().equals(trackName)).findFirst().get();
-        }
-    }
-
-    private final ArrayDeque<Track> playersTracks;
-    private final Map<String, Album> playersAlbums;
+    private Map<String, Track> allTracksByID;
+    private Map<String, Map<String, Track>> albumsWithTracksByTitle;
+    private ArrayDeque<Track> listeningQueue;
 
 
     public RePlayerImpl() {
-        playersTracks = new ArrayDeque<>();
-        playersAlbums = new LinkedHashMap<>();
+
+        this.allTracksByID = new HashMap<>();
+        this.albumsWithTracksByTitle = new TreeMap<>();
+        this.listeningQueue = new ArrayDeque<>();
     }
 
     @Override
     public void addTrack(Track track, String album) {
-        Album currentAlbum = this.playersAlbums.get(album);
-        if (currentAlbum == null) {
-            Album newAlbum = new Album(album);
-            newAlbum.addTrack(track);
-            this.playersAlbums.put(album, newAlbum);
-        } else {
-            currentAlbum.addTrack(track);
-            this.playersAlbums.put(album, currentAlbum);
+        String id = track.getId();
+        if (!allTracksByID.containsKey(id)) {
+            allTracksByID.put(id, track);
+            albumsWithTracksByTitle.putIfAbsent(album, new HashMap<>());
+            String title = track.getTitle();
+            albumsWithTracksByTitle.get(album).putIfAbsent(title, track);
         }
     }
 
     @Override
     public void removeTrack(String trackTitle, String albumName) {
-        Album currentAlbum = this.playersAlbums.get(albumName);
-        if (currentAlbum == null) {
+        if (!albumsWithTracksByTitle.containsKey(albumName)) {
             throw new IllegalArgumentException();
         }
-        boolean flag = false;
-        while (currentAlbum.getTrackInAlbum().iterator().hasNext()) {
-            Track next = currentAlbum.getTrackInAlbum().iterator().next();
-            if (next.getTitle().equals(trackTitle)) {
-                flag = true;
-            }
-        }
-        if (!flag) {
+        Track track = albumsWithTracksByTitle.get(albumName).remove(trackTitle);
+        if (track == null) {
             throw new IllegalArgumentException();
         }
-        currentAlbum.getTrackInAlbum().remove(trackTitle);
+        allTracksByID.remove(track.getId());
+       if (listeningQueue.contains(track)) {
+           listeningQueue.remove(track);
+       }
+    }
 
-        if (this.playersTracks.contains(trackTitle)) {
-            this.playersTracks.remove(trackTitle);
+    private void checkAlbumAndTrack(String trackTitle, String albumName) {
+        boolean albumCont = albumsWithTracksByTitle.containsKey(albumName);
+        boolean trackCont = albumsWithTracksByTitle.get(albumName).containsKey(trackTitle);
+        if (!albumCont || !trackCont) {
+            throw new IllegalArgumentException();
         }
-
     }
 
     @Override
     public boolean contains(Track track) {
-        return this.playersTracks.contains(track);
+        return this.allTracksByID.containsKey(track.getId());
     }
 
     @Override
     public int size() {
-        return this.playersAlbums.values().stream().mapToInt(Album::getSize).sum();
+        return this.allTracksByID.size();
     }
 
     @Override
     public Track getTrack(String title, String albumName) {
-        Album currentAlbum = this.playersAlbums.get(albumName);
-        if (currentAlbum == null) {
-            throw new IllegalArgumentException();
-        }
-        return currentAlbum.getTrack(title);
+        checkAlbumAndTrack(title, albumName);
+        return albumsWithTracksByTitle.get(albumName).get(title);
     }
 
     @Override
     public Iterable<Track> getAlbum(String albumName) {
-        Optional<Album> currentAlbum = this.playersAlbums.values().stream().filter(album -> album.nameOfAlbum.equals(albumName)).findFirst();
-        if (currentAlbum.isEmpty()) {
+        if (!albumsWithTracksByTitle.containsKey(albumName)) {
             throw new IllegalArgumentException();
         }
-        return currentAlbum.get().getTrackInAlbum();
+        return albumsWithTracksByTitle.get(albumName).values().stream()
+                .sorted((l, r) -> Integer.compare(r.getPlays(), l.getPlays()))
+                .collect(Collectors.toList());
     }
 
     @Override
     public void addToQueue(String trackName, String albumName) {
-        Album album = this.playersAlbums.get(albumName);
-        if (album == null) {
-            throw new IllegalArgumentException();
-        }
-        Optional<Track> currenTrack = album.trackInAlbum.stream().filter(track -> track.getTitle().equals(trackName)).findFirst();
-
-        if (currenTrack.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        Track toAdd = currenTrack.get();
-        album.addTrack(toAdd);
+        checkAlbumAndTrack(trackName, albumName);
+        listeningQueue.offer(albumsWithTracksByTitle.get(albumName).get(trackName));
     }
 
 
     @Override
     public Track play() {
-        return null;
+        Track currentTrack = listeningQueue.poll();
+        if (currentTrack == null) {
+            throw new IllegalArgumentException();
+        }
+        currentTrack.setPlays(currentTrack.getPlays() + 1);
+        return currentTrack;
     }
 
     @Override
     public Iterable<Track> getTracksInDurationRangeOrderedByDurationThenByPlaysDescending(int lowerBound, int upperBound) {
-        return null;
+        return this.allTracksByID.values().stream()
+                .filter(track -> lowerBound <= track.getDurationInSeconds()
+                        && track.getDurationInSeconds() <= upperBound)
+                .sorted((l,r) -> {
+                    if (l.getDurationInSeconds() != r.getDurationInSeconds()) {
+                        return l.getDurationInSeconds() - r.getDurationInSeconds();
+                    }
+                    return r.getPlays() - l.getPlays();
+                })
+                .collect(Collectors.toList());
     }
 
     @Override
     public Iterable<Track> getTracksOrderedByAlbumNameThenByPlaysDescendingThenByDurationDescending() {
-        return null;
+        ArrayList<Track> result = new ArrayList<>();
+        for (Map<String, Track> map : albumsWithTracksByTitle.values()) {
+            List<Track> collect = map.values().stream().sorted((l, r) -> {
+                if (l.getPlays() == r.getPlays()) {
+                    return Integer.compare(r.getDurationInSeconds(), l.getDurationInSeconds());
+                }
+                return Integer.compare(r.getPlays(), l.getPlays());
+            }).collect(Collectors.toList());
+            result.addAll(collect);
+        }
+        return result;
     }
 
     @Override
     public Map<String, List<Track>> getDiscography(String artistName) {
-        return null;
+        Map<String, List<Track>> result = new LinkedHashMap<>();
+        for (Map.Entry<String, Map<String, Track>> entry : albumsWithTracksByTitle.entrySet()) {
+            String albumName = entry.getKey();
+            List<Track> currentTracks = entry.getValue().values().stream()
+                    .filter(track -> track.getArtist().equals(artistName))
+                    .collect(Collectors.toList());
+            if (!currentTracks.isEmpty()) {
+                result.put(albumName, currentTracks);
+            }
+        }
+        if (result.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        return result;
     }
 }
